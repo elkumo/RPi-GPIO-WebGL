@@ -1,14 +1,14 @@
 # RPi to Unity
-A Raspberry Pi 4 Model B is configured to use two Hall effect sensors (HES) to send input data to a Unity game. The HES are connected via the RPi's GPIO and a Python script is used to detect magnetic fields. In the same Python script the use of Flask was employed in order for the RPi to connect to the Unity game. Two HES were used to provide forward and backwards movement for the player in the Unity game.
+A Raspberry Pi 4 Model B is configured to use two Hall effect sensors (HES) to send input data to a Unity game. The HES are connected via the RPi's GPIO and a Python script is used to detect magnetic fields. In the same Python script the use of Flask was employed in order for the RPi to connect to the Unity game. Two HES were used to provide forward and backwards movement for the player in the Unity game. \
 ![Sample](./Images/WebGLRun.png)
 
 ## Installation
-Configure the two HES on the RPi's GPIO ports and in the RPi-Python-HES.py. The **left** HES, used for forward movement, is connected to RPi GPIO 17, while the **right** HES, used for backward movement, is connected to RPi GPIO 27. GPIO 3v3 and ground were used for providing power to the circuit.
+Configure the two HES on the RPi's GPIO ports and in the RPi-Python-HES.py. The **left** HES, used for forward movement, is connected to RPi GPIO 17, while the **right** HES, used for backward movement, is connected to RPi GPIO 27. GPIO 3v3 and ground were used for providing power to the circuit. \
 ![Circuit](./Images/circuit.jpg)
 
 ### Building the Unity Game for WebGL
 #### 1. Installing the WebGL Build Support Module
-Before creating your Unity environment, make sure to install the WebGL build support for Unity in order to access the WebGL build tools in your Unity version. You can access this through the “Add Modules” tab located in the version settings in Unity Hub. After which you can launch your Unity project which will open the editor.
+Before creating your Unity environment, make sure to install the WebGL build support for Unity in order to access the WebGL build tools in your Unity version. You can access this through the “Add Modules” tab located in the version settings in Unity Hub. After which you can launch your Unity project which will open the editor. \
 ![Circuit](./Images/WebGLSupportModule.png)
 #### 2. Placing the scripts in the editor
 * Place the [PlayerController.cs](./1_UnityScripts/PlayerController.cs) in the editor and be sure to specify the object that will be controlled by the HES.
@@ -18,7 +18,7 @@ Before creating your Unity environment, make sure to install the WebGL build sup
 * **OPTIONAL:** Place the [FollowCar.cs](./1_UnityScripts/FollowCar.cs) in the editor and be sure to specify the object that the camera will follow.
 
 #### 3. Building the WebGL Application
-Under Publishing Settings in the Player Settings, change the Compression Format to DISABLED. This is because most web server libraries have a hard time unpacking compressed files which results in the environment not working entirely. Thus, building the environment uncompressed helps with compatibility in whatever web server you are using. Once done, you may build the WebGL application. A directory containing all the files needed will be created.
+Under Publishing Settings in the Player Settings, change the Compression Format to DISABLED. This is because most web server libraries have a hard time unpacking compressed files which results in the environment not working entirely. Thus, building the environment uncompressed helps with compatibility in whatever web server you are using. Once done, you may build the WebGL application. A directory containing all the files needed will be created. \
 ![PlayerSettings](./Images/EditorPlayerSettings.png)
 
 ### Setting Up Apache2 for WebGL
